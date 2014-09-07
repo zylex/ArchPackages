@@ -7,7 +7,7 @@
 pkgname=cloakcoin-qt
 _gitname=CloakCoinRelaunch
 pkgver=7.9f318b8
-pkgrel=1
+pkgrel=2
 pkgdesc="Cloakcoin is a peer-to-peer network-based digital currency (git version)."
 arch=('i686' 'x86_64')
 url="http://cloakcoin.org/"
