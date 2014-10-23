@@ -1,0 +1,37 @@
+# Maintainer: Ner0
+
+pkgname=omg-suite
+pkgver=20130525
+pkgrel=1
+pkgdesc="A dark and elegant GTK theme (includes Cinnamon, Emerald, Openbox and Xfwm4 theme)"
+arch=('any')
+url="http://nale12.deviantart.com/art/OMG-Suite-288398137"
+license=('GPL')
+depends=('gtk-engine-unico' 'gtk-engine-murrine' 'unzip')
+#optdepends=('omg-cinnamon-theme: A matching Cinnamon theme [AUR]')
+options=('!strip')
+source=('http://fc03.deviantart.net/fs71/f/2013/022/b/9/omg_suite_by_nale12-d4rpdfd.zip')
+md5sums=('ac8010afa5811d8820678daf3a6a91c9')
+
+package() {
+  for i in OMG{,-Dark,-Light}; do
+    find $i -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
+  done
+
+  # Install Emerald theme (change to "yes")
+  _emerald="no"
+
+  # Enable this you're using Left-side buttons layout (change to "yes")
+  _left_buttons="no"
+
+
+  if [ $_emerald = "yes" ]; then
+    install -Dm644 OMG.emerald "$pkgdir/usr/share/emerald/themes/OMG.emerald"
+  fi
+
+  if [ $_left_buttons = "yes" ]; then
+    find "$pkgdir/" -type d -name "metacity-1" | xargs rm -rf
+    for i in "$pkgdir"/usr/share/themes/OMG{,-Dark,-Light}; do
+    cp -rf OMG_Left_Buttons/metacity-1 "$i"; done
+  fi
+}
