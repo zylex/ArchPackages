@@ -2,7 +2,7 @@
 
 _pkgname=altyo
 pkgname=$_pkgname
-pkgver=0.4_rc13.linvinus1.r14.g82777da
+pkgver=0.4_rc13.linvinus1.r17.g99f1759
 pkgrel=1
 pkgdesc="Vala / GTK3 drop-down terminal emulator"
 arch=('i686' 'x86_64')
